@@ -245,7 +245,7 @@ function lineageOf(id) {
   return set;
 }
 
-function select(id) {
+function select(id, recenter = false) {
   selectedId = id;
   activeHouse = null;
   document.querySelectorAll("#legend-list li").forEach((li) => li.classList.remove("active"));
@@ -262,7 +262,7 @@ function select(id) {
     .classed("hot", (d) => blood.has(d.source.id) && blood.has(d.target.id));
 
   showInfo(byId.get(id));
-  centerOn(id);
+  if (recenter) centerOn(id);
 }
 
 function clearSelection() {
@@ -312,7 +312,7 @@ function showInfo(p) {
 
   document
     .querySelectorAll("#info-relations .rel-chip")
-    .forEach((c) => c.addEventListener("click", () => select(c.dataset.id)));
+    .forEach((c) => c.addEventListener("click", () => select(c.dataset.id, true)));
 
   document.getElementById("info-wiki").href =
     "https://en.wikipedia.org/wiki/Special:Search?search=" + encodeURIComponent(p.name);
@@ -376,7 +376,7 @@ function wireUI() {
     box.classList.add("show");
     box.querySelectorAll(".sr-item[data-id]").forEach((el) =>
       el.addEventListener("click", () => {
-        select(el.dataset.id);
+        select(el.dataset.id, true);
         box.classList.remove("show");
         input.value = byId.get(el.dataset.id).name;
       })
