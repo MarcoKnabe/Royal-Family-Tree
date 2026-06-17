@@ -1,0 +1,22 @@
+{
+  "name": "royal-family-tree",
+  "version": "1.0.0",
+  "description": "Interactive, linked family trees of the royal houses of Europe, traced as far back as the historical record allows.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "genealogy",
+    "royalty",
+    "family-tree",
+    "d3",
+    "history"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

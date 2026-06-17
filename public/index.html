@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Houses of Europe — An Interactive Family Tree</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">
+      <span class="crown">♛</span>
+      <div>
+        <h1>Royal Houses of Europe</h1>
+        <p id="subtitle">One linked genealogy, from the Carolingians to the House of Windsor</p>
+      </div>
+    </div>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search a person…  (e.g. Victoria)" autocomplete="off" />
+      <div id="search-results"></div>
+      <button id="reset-btn" title="Reset view">Reset</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="chart"></div>
+
+    <aside id="legend">
+      <h2>Royal Houses</h2>
+      <p class="hint">Click a house to highlight it.</p>
+      <ul id="legend-list"></ul>
+    </aside>
+
+    <section id="info" class="hidden">
+      <button id="info-close" aria-label="Close">×</button>
+      <h2 id="info-name"></h2>
+      <p id="info-title"></p>
+      <dl id="info-details"></dl>
+      <div id="info-relations"></div>
+      <a id="info-wiki" href="#" target="_blank" rel="noopener">Read on Wikipedia ↗</a>
+    </section>
+  </main>
+
+  <footer id="statusbar">
+    <span id="status-count"></span>
+    <span class="legend-inline">
+      <span class="key"><svg width="26" height="10"><line x1="0" y1="5" x2="26" y2="5" class="lk-parent"/></svg> parent → child</span>
+      <span class="key"><svg width="26" height="10"><line x1="0" y1="5" x2="26" y2="5" class="lk-spouse"/></svg> marriage</span>
+    </span>
+    <span class="tip">Scroll to zoom · drag to pan · click a person for details</span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
