@@ -170,9 +170,10 @@ function runSimulation() {
     .alphaDecay(0.018);
 
   sim.on("tick", ticked);
-  sim.on("end", () => fitToView());
 
-  // Stop pinning x once settled so users can drag nodes around.
+  // Frame the whole graph once, after the initial layout settles. Never
+  // auto-refit again — re-fitting on every simulation restart (e.g. after a
+  // click registers as a micro-drag) caused an unwanted zoom-out.
   let ticks = 0;
   sim.on("tick.fit", () => {
     if (++ticks === 60) fitToView();
