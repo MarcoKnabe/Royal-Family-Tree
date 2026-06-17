@@ -35,7 +35,7 @@ let yScale;
 init();
 
 async function init() {
-  const res = await fetch("/api/people");
+  const res = await fetch("royals.json");
   const data = await res.json();
   people = data.people;
   byId = new Map(people.map((p) => [p.id, p]));

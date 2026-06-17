@@ -39,16 +39,24 @@ Use `npm run dev` for auto-reload while editing.
 ## Project layout
 
 ```
-server.js          Express server (static files + /api/people)
-data/royals.json   The genealogical dataset — edit to add people
-public/index.html  Page shell
-public/style.css   Styling
-public/app.js      D3 visualisation, interaction, search & info panel
+public/index.html    Page shell
+public/style.css     Styling
+public/app.js        D3 visualisation, interaction, search & info panel
+public/royals.json   The genealogical dataset — edit to add people
+server.js            Optional local dev server (not used on Render)
 ```
+
+## Deploying on Render (Static Site)
+
+This is a fully static site. On Render create a **Static Site** pointed at this
+repo with:
+
+- **Build Command:** *(leave empty)*
+- **Publish Directory:** `public`
 
 ## Extending the data
 
-Add an object to `data/royals.json` → `people`. Each person:
+Add an object to `public/royals.json` → `people`. Each person:
 
 ```json
 {
@@ -64,8 +72,7 @@ Add an object to `data/royals.json` → `people`. Each person:
 }
 ```
 
-The server re-reads the file on each request, so a browser refresh shows your
-changes — no restart needed.
+A browser refresh shows your changes (redeploy on Render to publish them).
 
 > Dates and parentage cover the principal, well-documented lines. Royal
 > genealogy is vast; this is a curated, accurate backbone you can keep growing.
