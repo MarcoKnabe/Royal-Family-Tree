@@ -115,10 +115,10 @@
     { "id": "george-4", "name": "George IV", "born": 1762, "died": 1830, "house": "Hanover", "country": "United Kingdom", "title": "King of the United Kingdom", "father": "george-3", "mother": "charlotte-mecklenburg" },
     { "id": "william-4", "name": "William IV", "born": 1765, "died": 1837, "house": "Hanover", "country": "United Kingdom", "title": "King of the United Kingdom", "father": "george-3", "mother": "charlotte-mecklenburg" },
     { "id": "edward-kent", "name": "Edward, Duke of Kent", "born": 1767, "died": 1820, "house": "Hanover", "country": "United Kingdom", "title": "Duke of Kent", "father": "george-3", "mother": "charlotte-mecklenburg", "spouses": ["victoria-saxe-coburg"] },
-    { "id": "victoria-saxe-coburg", "name": "Victoria of Saxe-Coburg-Saalfeld", "born": 1786, "died": 1861, "house": "Saxe-Coburg-Gotha", "country": "United Kingdom", "title": "Duchess of Kent" },
+    { "id": "victoria-saxe-coburg", "name": "Victoria of Saxe-Coburg-Saalfeld", "born": 1786, "died": 1861, "house": "Saxe-Coburg-Gotha", "country": "United Kingdom", "title": "Duchess of Kent", "father": "francis-saxe-coburg" },
 
     { "id": "victoria", "name": "Queen Victoria", "born": 1819, "died": 1901, "house": "Hanover", "country": "United Kingdom", "title": "Queen of the United Kingdom, Empress of India", "father": "edward-kent", "mother": "victoria-saxe-coburg", "spouses": ["albert-saxe-coburg"] },
-    { "id": "albert-saxe-coburg", "name": "Prince Albert", "born": 1819, "died": 1861, "house": "Saxe-Coburg-Gotha", "country": "United Kingdom", "title": "Prince Consort" },
+    { "id": "albert-saxe-coburg", "name": "Prince Albert", "born": 1819, "died": 1861, "house": "Saxe-Coburg-Gotha", "country": "United Kingdom", "title": "Prince Consort", "father": "ernest-1-saxe-coburg" },
     { "id": "victoria-princess-royal", "name": "Victoria, Princess Royal", "born": 1840, "died": 1901, "house": "Saxe-Coburg-Gotha", "country": "Germany", "title": "German Empress", "father": "albert-saxe-coburg", "mother": "victoria", "spouses": ["frederick-3-germany"] },
     { "id": "edward-7", "name": "Edward VII", "born": 1841, "died": 1910, "house": "Saxe-Coburg-Gotha", "country": "United Kingdom", "title": "King of the United Kingdom", "father": "albert-saxe-coburg", "mother": "victoria", "spouses": ["alexandra-denmark"] },
     { "id": "alice-hesse", "name": "Princess Alice", "born": 1843, "died": 1878, "house": "Saxe-Coburg-Gotha", "country": "Hesse", "title": "Grand Duchess of Hesse", "father": "albert-saxe-coburg", "mother": "victoria", "spouses": ["louis-4-hesse"] },
@@ -148,11 +148,11 @@
     { "id": "charlotte-cambridge", "name": "Princess Charlotte of Wales", "born": 2015, "died": null, "house": "Windsor", "country": "United Kingdom", "title": "Princess", "father": "william-wales", "mother": "catherine-middleton" },
     { "id": "louis-cambridge", "name": "Prince Louis of Wales", "born": 2018, "died": null, "house": "Windsor", "country": "United Kingdom", "title": "Prince", "father": "william-wales", "mother": "catherine-middleton" },
 
-    { "id": "wilhelm-1-germany", "name": "Wilhelm I", "born": 1797, "died": 1888, "house": "Hohenzollern", "country": "Germany", "title": "German Emperor" },
+    { "id": "wilhelm-1-germany", "name": "Wilhelm I", "born": 1797, "died": 1888, "house": "Hohenzollern", "country": "Germany", "title": "German Emperor", "father": "frederick-william-3-prussia" },
     { "id": "frederick-3-germany", "name": "Frederick III", "born": 1831, "died": 1888, "house": "Hohenzollern", "country": "Germany", "title": "German Emperor", "father": "wilhelm-1-germany" },
     { "id": "wilhelm-2-germany", "name": "Wilhelm II", "born": 1859, "died": 1941, "house": "Hohenzollern", "country": "Germany", "title": "German Emperor", "father": "frederick-3-germany", "mother": "victoria-princess-royal" },
 
-    { "id": "louis-4-hesse", "name": "Louis IV", "born": 1837, "died": 1892, "house": "Hesse-Darmstadt", "country": "Hesse", "title": "Grand Duke of Hesse" },
+    { "id": "louis-4-hesse", "name": "Louis IV", "born": 1837, "died": 1892, "house": "Hesse-Darmstadt", "country": "Hesse", "title": "Grand Duke of Hesse", "father": "charles-hesse" },
     { "id": "alix-hesse", "name": "Alix of Hesse (Alexandra Feodorovna)", "born": 1872, "died": 1918, "house": "Hesse-Darmstadt", "country": "Russia", "title": "Empress of Russia", "father": "louis-4-hesse", "mother": "alice-hesse", "spouses": ["nicholas-2-russia"] },
 
     { "id": "peter-great", "name": "Peter the Great", "born": 1672, "died": 1725, "house": "Romanov", "country": "Russia", "title": "Emperor of Russia" },
@@ -194,7 +194,7 @@
     { "id": "isabella-castile", "name": "Isabella I of Castile", "born": 1451, "died": 1504, "house": "Trastámara", "country": "Spain", "title": "Queen of Castile" },
     { "id": "joanna-castile", "name": "Joanna of Castile", "born": 1479, "died": 1555, "house": "Trastámara", "country": "Spain", "title": "Queen of Castile and Aragon", "father": "ferdinand-aragon", "mother": "isabella-castile", "spouses": ["philip-handsome"] },
 
-    { "id": "maximilian-1-hre", "name": "Maximilian I", "born": 1459, "died": 1519, "house": "Habsburg", "country": "Holy Roman Empire", "title": "Holy Roman Emperor" },
+    { "id": "maximilian-1-hre", "name": "Maximilian I", "born": 1459, "died": 1519, "house": "Habsburg", "country": "Holy Roman Empire", "title": "Holy Roman Emperor", "father": "frederick-3-hre" },
     { "id": "philip-handsome", "name": "Philip the Handsome", "born": 1478, "died": 1506, "house": "Habsburg", "country": "Castile", "title": "King of Castile", "father": "maximilian-1-hre" },
     { "id": "charles-5-hre", "name": "Charles V", "born": 1500, "died": 1558, "house": "Habsburg", "country": "Holy Roman Empire", "title": "Holy Roman Emperor & King of Spain", "father": "philip-handsome", "mother": "joanna-castile" },
     { "id": "ferdinand-1-hre", "name": "Ferdinand I", "born": 1503, "died": 1564, "house": "Habsburg", "country": "Holy Roman Empire", "title": "Holy Roman Emperor", "father": "philip-handsome", "mother": "joanna-castile" },
@@ -207,11 +207,11 @@
     { "id": "marie-antoinette", "name": "Marie Antoinette", "born": 1755, "died": 1793, "house": "Habsburg-Lorraine", "country": "France", "title": "Queen of France", "father": "francis-1-hre", "mother": "maria-theresa", "spouses": ["louis-16"] },
     { "id": "francis-2-hre", "name": "Francis II", "born": 1768, "died": 1835, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Last Holy Roman Emperor, Emperor of Austria", "father": "leopold-2-hre" },
     { "id": "franz-karl-austria", "name": "Archduke Franz Karl", "born": 1802, "died": 1878, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Archduke of Austria", "father": "francis-2-hre" },
-    { "id": "franz-joseph-1", "name": "Franz Joseph I", "born": 1830, "died": 1916, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Emperor of Austria", "father": "franz-karl-austria", "spouses": ["elisabeth-bavaria"] },
+    { "id": "franz-joseph-1", "name": "Franz Joseph I", "born": 1830, "died": 1916, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Emperor of Austria", "father": "franz-karl-austria", "mother": "sophie-bavaria", "spouses": ["elisabeth-bavaria"] },
     { "id": "elisabeth-bavaria", "name": "Empress Elisabeth (Sisi)", "born": 1837, "died": 1898, "house": "Wittelsbach", "country": "Austria", "title": "Empress of Austria" },
     { "id": "rudolf-austria", "name": "Crown Prince Rudolf", "born": 1858, "died": 1889, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Crown Prince of Austria", "father": "franz-joseph-1", "mother": "elisabeth-bavaria" },
 
-    { "id": "hugh-capet", "name": "Hugh Capet", "born": 941, "died": 996, "house": "Capet", "country": "France", "title": "King of the Franks" },
+    { "id": "hugh-capet", "name": "Hugh Capet", "born": 941, "died": 996, "house": "Capet", "country": "France", "title": "King of the Franks", "father": "hugh-the-great" },
     { "id": "robert-2-france", "name": "Robert II the Pious", "born": 972, "died": 1031, "house": "Capet", "country": "France", "title": "King of the Franks", "father": "hugh-capet" },
     { "id": "henry-1-france", "name": "Henry I", "born": 1008, "died": 1060, "house": "Capet", "country": "France", "title": "King of the Franks", "father": "robert-2-france" },
     { "id": "philip-1-france", "name": "Philip I", "born": 1052, "died": 1108, "house": "Capet", "country": "France", "title": "King of the Franks", "father": "henry-1-france" },
@@ -228,7 +228,7 @@
     { "id": "charles-5-france", "name": "Charles V the Wise", "born": 1338, "died": 1380, "house": "Valois", "country": "France", "title": "King of France", "father": "john-2-france" },
     { "id": "charles-6-france", "name": "Charles VI the Mad", "born": 1368, "died": 1422, "house": "Valois", "country": "France", "title": "King of France", "father": "charles-5-france" },
 
-    { "id": "henry-4-france", "name": "Henry IV", "born": 1553, "died": 1610, "house": "Bourbon", "country": "France", "title": "King of France", "spouses": ["marie-medici"] },
+    { "id": "henry-4-france", "name": "Henry IV", "born": 1553, "died": 1610, "house": "Bourbon", "country": "France", "title": "King of France", "father": "antoine-bourbon", "mother": "jeanne-albret", "spouses": ["marie-medici"] },
     { "id": "marie-medici", "name": "Marie de' Medici", "born": 1575, "died": 1642, "house": "Medici", "country": "France", "title": "Queen of France" },
     { "id": "louis-13", "name": "Louis XIII", "born": 1601, "died": 1643, "house": "Bourbon", "country": "France", "title": "King of France", "father": "henry-4-france", "mother": "marie-medici", "spouses": ["anne-austria"] },
     { "id": "anne-austria", "name": "Anne of Austria", "born": 1601, "died": 1666, "house": "Habsburg", "country": "France", "title": "Queen of France" },
@@ -266,7 +266,7 @@
     { "id": "louise-orleans", "name": "Louise of Orléans", "born": 1812, "died": 1850, "house": "Orléans", "country": "Belgium", "title": "Queen of the Belgians", "father": "louis-philippe-1-france", "spouses": ["leopold-1-belgium"] },
 
     { "id": "charlotte-wales", "name": "Princess Charlotte of Wales", "born": 1796, "died": 1817, "house": "Hanover", "country": "United Kingdom", "title": "Princess of Wales", "father": "george-4", "spouses": ["leopold-1-belgium"] },
-    { "id": "leopold-1-belgium", "name": "Leopold I", "born": 1790, "died": 1865, "house": "Saxe-Coburg-Gotha", "country": "Belgium", "title": "King of the Belgians" },
+    { "id": "leopold-1-belgium", "name": "Leopold I", "born": 1790, "died": 1865, "house": "Saxe-Coburg-Gotha", "country": "Belgium", "title": "King of the Belgians", "father": "francis-saxe-coburg" },
     { "id": "leopold-2-belgium", "name": "Leopold II", "born": 1835, "died": 1909, "house": "Saxe-Coburg-Gotha", "country": "Belgium", "title": "King of the Belgians", "father": "leopold-1-belgium", "mother": "louise-orleans" },
     { "id": "philippe-flanders", "name": "Philippe, Count of Flanders", "born": 1837, "died": 1905, "house": "Saxe-Coburg-Gotha", "country": "Belgium", "title": "Count of Flanders", "father": "leopold-1-belgium", "mother": "louise-orleans" },
     { "id": "albert-1-belgium", "name": "Albert I", "born": 1875, "died": 1934, "house": "Saxe-Coburg-Gotha", "country": "Belgium", "title": "King of the Belgians", "father": "philippe-flanders" },
@@ -338,10 +338,78 @@
     { "id": "frederick-william-3-prussia", "name": "Frederick William III", "born": 1770, "died": 1840, "house": "Hohenzollern", "country": "Prussia", "title": "King of Prussia", "father": "frederick-william-2-prussia" },
     { "id": "frederick-william-4-prussia", "name": "Frederick William IV", "born": 1795, "died": 1861, "house": "Hohenzollern", "country": "Prussia", "title": "King of Prussia", "father": "frederick-william-3-prussia" },
 
-    { "id": "karl-ludwig-austria", "name": "Archduke Karl Ludwig", "born": 1833, "died": 1896, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Archduke of Austria", "father": "franz-karl-austria" },
+    { "id": "karl-ludwig-austria", "name": "Archduke Karl Ludwig", "born": 1833, "died": 1896, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Archduke of Austria", "father": "franz-karl-austria", "mother": "sophie-bavaria" },
     { "id": "franz-ferdinand", "name": "Archduke Franz Ferdinand", "born": 1863, "died": 1914, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Heir to Austria-Hungary", "father": "karl-ludwig-austria" },
     { "id": "otto-franz-austria", "name": "Archduke Otto Franz", "born": 1865, "died": 1906, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Archduke of Austria", "father": "karl-ludwig-austria" },
     { "id": "charles-1-austria", "name": "Charles I", "born": 1887, "died": 1922, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Emperor of Austria", "father": "otto-franz-austria" },
-    { "id": "otto-habsburg", "name": "Otto von Habsburg", "born": 1912, "died": 2011, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Crown Prince of Austria-Hungary", "father": "charles-1-austria" }
+    { "id": "otto-habsburg", "name": "Otto von Habsburg", "born": 1912, "died": 2011, "house": "Habsburg-Lorraine", "country": "Austria", "title": "Crown Prince of Austria-Hungary", "father": "charles-1-austria" },
+
+    { "id": "louis-stammerer", "name": "Louis the Stammerer", "born": 846, "died": 879, "house": "Carolingian", "country": "West Francia", "title": "King of West Francia", "father": "charles-bald" },
+    { "id": "charles-simple", "name": "Charles III the Simple", "born": 879, "died": 929, "house": "Carolingian", "country": "West Francia", "title": "King of West Francia", "father": "louis-stammerer" },
+    { "id": "louis-4-france", "name": "Louis IV d'Outremer", "born": 920, "died": 954, "house": "Carolingian", "country": "West Francia", "title": "King of West Francia", "father": "charles-simple" },
+    { "id": "lothair-france", "name": "Lothair", "born": 941, "died": 986, "house": "Carolingian", "country": "West Francia", "title": "King of West Francia", "father": "louis-4-france" },
+    { "id": "louis-5-france", "name": "Louis V the Indolent", "born": 967, "died": 987, "house": "Carolingian", "country": "West Francia", "title": "Last Carolingian King of West Francia", "father": "lothair-france" },
+
+    { "id": "robert-strong", "name": "Robert the Strong", "born": 820, "died": 866, "house": "Robertian", "country": "West Francia", "title": "Marquis of Neustria" },
+    { "id": "robert-1-france", "name": "Robert I", "born": 866, "died": 923, "house": "Robertian", "country": "West Francia", "title": "King of West Francia", "father": "robert-strong" },
+    { "id": "hugh-the-great", "name": "Hugh the Great", "born": 898, "died": 956, "house": "Robertian", "country": "West Francia", "title": "Duke of the Franks", "father": "robert-1-france" },
+
+    { "id": "louis-1-orleans", "name": "Louis I, Duke of Orléans", "born": 1372, "died": 1407, "house": "Valois", "country": "France", "title": "Duke of Orléans", "father": "charles-5-france" },
+    { "id": "charles-orleans", "name": "Charles, Duke of Orléans", "born": 1394, "died": 1465, "house": "Valois", "country": "France", "title": "Duke of Orléans (poet)", "father": "louis-1-orleans" },
+    { "id": "john-angouleme", "name": "John, Count of Angoulême", "born": 1399, "died": 1467, "house": "Valois", "country": "France", "title": "Count of Angoulême", "father": "louis-1-orleans" },
+    { "id": "charles-angouleme", "name": "Charles, Count of Angoulême", "born": 1459, "died": 1496, "house": "Valois", "country": "France", "title": "Count of Angoulême", "father": "john-angouleme" },
+    { "id": "charles-7-france", "name": "Charles VII the Victorious", "born": 1403, "died": 1461, "house": "Valois", "country": "France", "title": "King of France", "father": "charles-6-france" },
+    { "id": "louis-11-france", "name": "Louis XI the Prudent", "born": 1423, "died": 1483, "house": "Valois", "country": "France", "title": "King of France", "father": "charles-7-france" },
+    { "id": "charles-8-france", "name": "Charles VIII the Affable", "born": 1470, "died": 1498, "house": "Valois", "country": "France", "title": "King of France", "father": "louis-11-france" },
+    { "id": "louis-12-france", "name": "Louis XII", "born": 1462, "died": 1515, "house": "Valois", "country": "France", "title": "King of France", "father": "charles-orleans" },
+    { "id": "francis-1-france", "name": "Francis I", "born": 1494, "died": 1547, "house": "Valois", "country": "France", "title": "King of France", "father": "charles-angouleme" },
+    { "id": "henry-2-france", "name": "Henry II", "born": 1519, "died": 1559, "house": "Valois", "country": "France", "title": "King of France", "father": "francis-1-france", "spouses": ["catherine-medici"] },
+    { "id": "catherine-medici", "name": "Catherine de' Medici", "born": 1519, "died": 1589, "house": "Medici", "country": "France", "title": "Queen of France" },
+    { "id": "francis-2-france", "name": "Francis II", "born": 1544, "died": 1560, "house": "Valois", "country": "France", "title": "King of France", "father": "henry-2-france", "mother": "catherine-medici", "spouses": ["mary-queen-scots"] },
+    { "id": "charles-9-france", "name": "Charles IX", "born": 1550, "died": 1574, "house": "Valois", "country": "France", "title": "King of France", "father": "henry-2-france", "mother": "catherine-medici" },
+    { "id": "henry-3-france", "name": "Henry III", "born": 1551, "died": 1589, "house": "Valois", "country": "France", "title": "King of France", "father": "henry-2-france", "mother": "catherine-medici" },
+    { "id": "elisabeth-valois", "name": "Elisabeth of Valois", "born": 1545, "died": 1568, "house": "Valois", "country": "Spain", "title": "Queen of Spain", "father": "henry-2-france", "mother": "catherine-medici", "spouses": ["philip-2-spain"] },
+    { "id": "margaret-valois", "name": "Margaret of Valois (La Reine Margot)", "born": 1553, "died": 1615, "house": "Valois", "country": "France", "title": "Queen of France and Navarre", "father": "henry-2-france", "mother": "catherine-medici", "spouses": ["henry-4-france"] },
+
+    { "id": "robert-clermont", "name": "Robert, Count of Clermont", "born": 1256, "died": 1317, "house": "Bourbon", "country": "France", "title": "Count of Clermont", "father": "louis-9-france" },
+    { "id": "louis-1-bourbon", "name": "Louis I, Duke of Bourbon", "born": 1279, "died": 1341, "house": "Bourbon", "country": "France", "title": "Duke of Bourbon", "father": "robert-clermont" },
+    { "id": "james-1-bourbon", "name": "James I, Count of La Marche", "born": 1319, "died": 1362, "house": "Bourbon", "country": "France", "title": "Count of La Marche", "father": "louis-1-bourbon" },
+    { "id": "john-1-la-marche", "name": "John I, Count of La Marche", "born": 1344, "died": 1393, "house": "Bourbon", "country": "France", "title": "Count of La Marche", "father": "james-1-bourbon" },
+    { "id": "louis-vendome", "name": "Louis, Count of Vendôme", "born": 1376, "died": 1446, "house": "Bourbon", "country": "France", "title": "Count of Vendôme", "father": "john-1-la-marche" },
+    { "id": "jean-vendome", "name": "Jean VIII, Count of Vendôme", "born": 1428, "died": 1478, "house": "Bourbon", "country": "France", "title": "Count of Vendôme", "father": "louis-vendome" },
+    { "id": "francois-vendome", "name": "François, Count of Vendôme", "born": 1470, "died": 1495, "house": "Bourbon", "country": "France", "title": "Count of Vendôme", "father": "jean-vendome" },
+    { "id": "charles-vendome", "name": "Charles, Duke of Vendôme", "born": 1489, "died": 1537, "house": "Bourbon", "country": "France", "title": "Duke of Vendôme", "father": "francois-vendome" },
+    { "id": "antoine-bourbon", "name": "Antoine de Bourbon", "born": 1518, "died": 1562, "house": "Bourbon", "country": "France", "title": "King of Navarre", "father": "charles-vendome", "spouses": ["jeanne-albret"] },
+    { "id": "jeanne-albret", "name": "Jeanne d'Albret", "born": 1528, "died": 1572, "house": "Albret", "country": "France", "title": "Queen of Navarre" },
+
+    { "id": "louis-18-france", "name": "Louis XVIII", "born": 1755, "died": 1824, "house": "Bourbon", "country": "France", "title": "King of France", "father": "louis-dauphin" },
+    { "id": "charles-10-france", "name": "Charles X", "born": 1757, "died": 1836, "house": "Bourbon", "country": "France", "title": "King of France", "father": "louis-dauphin" },
+    { "id": "louis-antoine-angouleme", "name": "Louis Antoine, Duke of Angoulême", "born": 1775, "died": 1844, "house": "Bourbon", "country": "France", "title": "Dauphin (Louis XIX)", "father": "charles-10-france" },
+    { "id": "charles-ferdinand-berry", "name": "Charles Ferdinand, Duke of Berry", "born": 1778, "died": 1820, "house": "Bourbon", "country": "France", "title": "Duke of Berry", "father": "charles-10-france" },
+    { "id": "henri-chambord", "name": "Henri, Count of Chambord", "born": 1820, "died": 1883, "house": "Bourbon", "country": "France", "title": "Legitimist pretender (Henri V)", "father": "charles-ferdinand-berry" },
+    { "id": "ferdinand-philippe-orleans", "name": "Ferdinand Philippe, Duke of Orléans", "born": 1810, "died": 1842, "house": "Orléans", "country": "France", "title": "Prince Royal", "father": "louis-philippe-1-france" },
+    { "id": "philippe-count-paris", "name": "Philippe, Count of Paris", "born": 1838, "died": 1894, "house": "Orléans", "country": "France", "title": "Orléanist pretender", "father": "ferdinand-philippe-orleans" },
+
+    { "id": "rudolf-1-habsburg", "name": "Rudolf I", "born": 1218, "died": 1291, "house": "Habsburg", "country": "Holy Roman Empire", "title": "King of the Romans" },
+    { "id": "albert-1-habsburg", "name": "Albert I", "born": 1255, "died": 1308, "house": "Habsburg", "country": "Holy Roman Empire", "title": "King of the Romans", "father": "rudolf-1-habsburg" },
+    { "id": "albert-2-habsburg-duke", "name": "Albert II, Duke of Austria", "born": 1298, "died": 1358, "house": "Habsburg", "country": "Holy Roman Empire", "title": "Duke of Austria", "father": "albert-1-habsburg" },
+    { "id": "leopold-3-habsburg", "name": "Leopold III, Duke of Austria", "born": 1351, "died": 1386, "house": "Habsburg", "country": "Holy Roman Empire", "title": "Duke of Austria", "father": "albert-2-habsburg-duke" },
+    { "id": "ernest-iron", "name": "Ernest the Iron", "born": 1377, "died": 1424, "house": "Habsburg", "country": "Holy Roman Empire", "title": "Duke of Inner Austria", "father": "leopold-3-habsburg" },
+    { "id": "frederick-3-hre", "name": "Frederick III", "born": 1415, "died": 1493, "house": "Habsburg", "country": "Holy Roman Empire", "title": "Holy Roman Emperor", "father": "ernest-iron" },
+
+    { "id": "maximilian-1-joseph-bavaria", "name": "Maximilian I Joseph", "born": 1756, "died": 1825, "house": "Wittelsbach", "country": "Germany", "title": "King of Bavaria" },
+    { "id": "ludwig-1-bavaria", "name": "Ludwig I", "born": 1786, "died": 1868, "house": "Wittelsbach", "country": "Germany", "title": "King of Bavaria", "father": "maximilian-1-joseph-bavaria" },
+    { "id": "maximilian-2-bavaria", "name": "Maximilian II", "born": 1811, "died": 1864, "house": "Wittelsbach", "country": "Germany", "title": "King of Bavaria", "father": "ludwig-1-bavaria" },
+    { "id": "ludwig-2-bavaria", "name": "Ludwig II (the Swan King)", "born": 1845, "died": 1886, "house": "Wittelsbach", "country": "Germany", "title": "King of Bavaria", "father": "maximilian-2-bavaria" },
+    { "id": "otto-bavaria", "name": "Otto", "born": 1848, "died": 1916, "house": "Wittelsbach", "country": "Germany", "title": "King of Bavaria", "father": "maximilian-2-bavaria" },
+    { "id": "sophie-bavaria", "name": "Princess Sophie of Bavaria", "born": 1805, "died": 1872, "house": "Wittelsbach", "country": "Austria", "title": "Archduchess of Austria", "father": "maximilian-1-joseph-bavaria", "spouses": ["franz-karl-austria"] },
+
+    { "id": "francis-saxe-coburg", "name": "Francis, Duke of Saxe-Coburg-Saalfeld", "born": 1750, "died": 1806, "house": "Saxe-Coburg-Gotha", "country": "Germany", "title": "Duke of Saxe-Coburg-Saalfeld" },
+    { "id": "ernest-1-saxe-coburg", "name": "Ernest I", "born": 1784, "died": 1844, "house": "Saxe-Coburg-Gotha", "country": "Germany", "title": "Duke of Saxe-Coburg-Gotha", "father": "francis-saxe-coburg" },
+    { "id": "ernest-2-saxe-coburg", "name": "Ernest II", "born": 1818, "died": 1893, "house": "Saxe-Coburg-Gotha", "country": "Germany", "title": "Duke of Saxe-Coburg-Gotha", "father": "ernest-1-saxe-coburg" },
+
+    { "id": "louis-2-hesse", "name": "Louis II", "born": 1777, "died": 1848, "house": "Hesse-Darmstadt", "country": "Hesse", "title": "Grand Duke of Hesse" },
+    { "id": "charles-hesse", "name": "Prince Charles of Hesse", "born": 1809, "died": 1877, "house": "Hesse-Darmstadt", "country": "Hesse", "title": "Prince of Hesse", "father": "louis-2-hesse" },
+    { "id": "ernest-louis-hesse", "name": "Ernest Louis", "born": 1868, "died": 1937, "house": "Hesse-Darmstadt", "country": "Hesse", "title": "Grand Duke of Hesse", "father": "louis-4-hesse", "mother": "alice-hesse" }
   ]
 }
