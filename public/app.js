@@ -17,6 +17,15 @@ let color;
 let selectedId = null;
 let activeHouse = null;
 let activeRealm = null;
+let currentMeta = {};
+
+// The worlds you can explore. Each is a self-contained dataset with the same
+// schema; switching simply reloads the graph from a different file.
+const UNIVERSES = {
+  real: { label: "👑 Real World — Europe", file: "royals.json" },
+  lotr: { label: "💍 Middle-earth (LOTR)", file: "middle-earth.json" },
+  asoiaf: { label: "🐉 Westeros (ASOIAF)", file: "westeros.json" },
+};
 
 // Historical realms map onto modern countries for the navigation menu, so the
 // many granular polities in the data collapse into the country you'd look for.
@@ -51,13 +60,32 @@ svg.call(zoom);
 // Birth year → vertical pixel position. Built once the data is known.
 let yScale;
 
-init();
+bootstrap();
 
-async function init() {
-  const res = await fetch("royals.json");
-  const data = await res.json();
+function bootstrap() {
+  buildWorldMenu();
+  wireUI();
+  loadUniverse("real");
+}
+
+async function loadUniverse(key) {
+  const u = UNIVERSES[key] || UNIVERSES.real;
+  const data = await (await fetch(u.file)).json();
   people = data.people;
   byId = new Map(people.map((p) => [p.id, p]));
+  currentMeta = data.meta;
+
+  // Reset interaction state and clear the previous world's rendering.
+  selectedId = null;
+  activeHouse = null;
+  activeRealm = null;
+  gEras.selectAll("*").remove();
+  gLinks.selectAll("*").remove();
+  gNodes.selectAll("*").remove();
+  document.getElementById("info").classList.add("hidden");
+  document.getElementById("search").value = "";
+  document.getElementById("country-menu").value = "";
+  document.getElementById("subtitle").textContent = data.meta.subtitle || data.meta.description || "";
 
   buildGraph();
   buildColors();
@@ -66,12 +94,20 @@ async function init() {
   buildEras(data.meta);
   draw();
   runSimulation();
-  wireUI();
 
+  const suffix = data.meta.yearSuffix || "";
   document.getElementById("status-count").textContent =
-    `${people.length} people · ${data.meta.earliest}–${data.meta.latest} · ${
+    `${people.length} people · ${data.meta.earliest}–${data.meta.latest} ${suffix} · ${
       new Set(people.map((p) => p.house)).size
     } houses`;
+}
+
+function buildWorldMenu() {
+  const menu = document.getElementById("world-menu");
+  menu.innerHTML = Object.entries(UNIVERSES)
+    .map(([k, u]) => `<option value="${k}">${u.label}</option>`)
+    .join("");
+  menu.addEventListener("change", () => loadUniverse(menu.value));
 }
 
 function buildGraph() {
@@ -116,10 +152,12 @@ function buildColors() {
 }
 
 function buildEras(meta) {
-  // Faint century gridlines to anchor the eye in time.
-  const start = Math.ceil(meta.earliest / 100) * 100;
-  const ticks = d3.range(start, meta.latest + 1, 100);
-  const x0 = -4000;
+  // Faint gridlines to anchor the eye in time; spacing & label vary by world.
+  const tick = meta.tick || 100;
+  const suffix = meta.yearSuffix || "AD";
+  const start = Math.ceil(meta.earliest / tick) * tick;
+  const ticks = d3.range(start, meta.latest + 1, tick);
+  const x0 = -8000;
   const x1 = 8000;
   const era = gEras
     .selectAll("g")
@@ -132,7 +170,7 @@ function buildEras(meta) {
     .attr("class", "era-label")
     .attr("x", x0 + 20)
     .attr("dy", -4)
-    .text((d) => `${d} AD`);
+    .text((d) => `${d} ${suffix}`);
 }
 
 function draw() {
@@ -312,7 +350,9 @@ function showInfo(p) {
   document.getElementById("info-name").textContent = p.name;
   document.getElementById("info-title").textContent = p.title || "";
 
-  const lifespan = `${p.born}${p.died === null ? " – present" : ` – ${p.died}`}`;
+  const suffix = currentMeta.yearSuffix && currentMeta.yearSuffix !== "AD" ? ` ${currentMeta.yearSuffix}` : "";
+  const lifespan =
+    p.date || `${p.born}${p.died === null ? " – present" : ` – ${p.died}`}${suffix}`;
   document.getElementById("info-details").innerHTML = `
     <dt>Lived</dt><dd>${lifespan}</dd>
     <dt>House</dt><dd>${p.house}</dd>
@@ -385,13 +425,14 @@ function buildCountryMenu() {
   const counts = d3.rollup(people, (v) => v.length, (d) => realmOf(d.country));
   const realms = Array.from(counts.keys()).sort();
   const menu = document.getElementById("country-menu");
+  // Rebuild for the current world, keeping the leading "All realms" option.
+  menu.innerHTML = '<option value="">All realms</option>';
   for (const r of realms) {
     const opt = document.createElement("option");
     opt.value = r;
     opt.textContent = `${r} (${counts.get(r)})`;
     menu.appendChild(opt);
   }
-  menu.addEventListener("change", () => focusRealm(menu.value));
 }
 
 function focusRealm(realm) {
@@ -457,6 +498,10 @@ function wireUI() {
     document.getElementById("search").value = "";
     fitToView();
   });
+
+  document.getElementById("country-menu").addEventListener("change", (e) =>
+    focusRealm(e.target.value)
+  );
 
   document.getElementById("info-close").addEventListener("click", clearSelection);
 }
