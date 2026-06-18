@@ -25,6 +25,9 @@ one realm into another:
 - **Linked lines** — solid lines are parent → child, dashed lines are marriages.
 - **Click anyone** to light up their entire bloodline (ancestors + descendants)
   and open a detail panel with parents, spouses, children and a Wikipedia link.
+- **Country menu** to jump to and isolate a realm (United Kingdom, France,
+  Spain, Russia, Germany, Austria, Denmark, Sweden, Norway, Netherlands,
+  Belgium, Italy, Portugal, Greece).
 - **Search** by name or house, **filter** by house from the legend, zoom & pan.
 
 ## Run it

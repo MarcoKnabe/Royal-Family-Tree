@@ -16,6 +16,25 @@ let links = [];
 let color;
 let selectedId = null;
 let activeHouse = null;
+let activeRealm = null;
+
+// Historical realms map onto modern countries for the navigation menu, so the
+// many granular polities in the data collapse into the country you'd look for.
+const COUNTRY_TO_REALM = {
+  England: "United Kingdom", Scotland: "United Kingdom", Wales: "United Kingdom",
+  "Great Britain": "United Kingdom", "United Kingdom": "United Kingdom", Hanover: "United Kingdom",
+  Francia: "France", "West Francia": "France", France: "France", Anjou: "France",
+  Spain: "Spain", Castile: "Spain",
+  Russia: "Russia",
+  "Holy Roman Empire": "Germany", Germany: "Germany", Prussia: "Germany",
+  Hesse: "Germany", Palatinate: "Germany", Bohemia: "Germany", Holstein: "Germany",
+  Austria: "Austria",
+  Denmark: "Denmark", Sweden: "Sweden", Norway: "Norway",
+  Netherlands: "Netherlands", Orange: "Netherlands", "Dutch Republic": "Netherlands",
+  Belgium: "Belgium", Flanders: "Belgium",
+  Italy: "Italy", Portugal: "Portugal", Greece: "Greece",
+};
+const realmOf = (country) => COUNTRY_TO_REALM[country] || country;
 
 const svg = d3.select("#chart").append("svg");
 const gZoom = svg.append("g");
@@ -43,6 +62,7 @@ async function init() {
   buildGraph();
   buildColors();
   buildLegend();
+  buildCountryMenu();
   buildEras(data.meta);
   draw();
   runSimulation();
@@ -206,9 +226,10 @@ function ticked() {
   gNodes.selectAll("g.node").attr("transform", (d) => `translate(${d.x},${d.y})`);
 }
 
-function fitToView() {
-  const xs = nodes.map((n) => n.x);
-  const ys = nodes.map((n) => n.y);
+function fitToView(subset) {
+  const set = subset && subset.length ? subset : nodes;
+  const xs = set.map((n) => n.x);
+  const ys = set.map((n) => n.y);
   const minX = Math.min(...xs), maxX = Math.max(...xs);
   const minY = Math.min(...ys), maxY = Math.max(...ys);
   const bw = maxX - minX + 120;
@@ -340,6 +361,8 @@ function buildLegend() {
 
 function toggleHouse(house, li) {
   clearSelection();
+  activeRealm = null;
+  document.getElementById("country-menu").value = "";
   if (activeHouse === house) {
     activeHouse = null;
     li.classList.remove("active");
@@ -354,6 +377,43 @@ function toggleHouse(house, li) {
   gLinks
     .selectAll("line")
     .classed("faded", (d) => d.source.house !== house || d.target.house !== house);
+}
+
+/* ---------- Country menu ---------- */
+
+function buildCountryMenu() {
+  const counts = d3.rollup(people, (v) => v.length, (d) => realmOf(d.country));
+  const realms = Array.from(counts.keys()).sort();
+  const menu = document.getElementById("country-menu");
+  for (const r of realms) {
+    const opt = document.createElement("option");
+    opt.value = r;
+    opt.textContent = `${r} (${counts.get(r)})`;
+    menu.appendChild(opt);
+  }
+  menu.addEventListener("change", () => focusRealm(menu.value));
+}
+
+function focusRealm(realm) {
+  clearSelection();
+  activeHouse = null;
+  document.querySelectorAll("#legend-list li").forEach((li) => li.classList.remove("active"));
+  activeRealm = realm || null;
+
+  if (!realm) {
+    gNodes.selectAll("g.node").classed("faded", false);
+    gLinks.selectAll("line").classed("faded", false);
+    fitToView();
+    return;
+  }
+
+  const inRealm = (d) => realmOf(d.country) === realm;
+  gNodes.selectAll("g.node").classed("faded", (d) => !inRealm(d));
+  gLinks
+    .selectAll("line")
+    .classed("faded", (d) => !(inRealm(d.source) && inRealm(d.target)))
+    .classed("hot", (d) => inRealm(d.source) && inRealm(d.target));
+  fitToView(nodes.filter(inRealm));
 }
 
 /* ---------- Search & buttons ---------- */
@@ -391,7 +451,9 @@ function wireUI() {
   document.getElementById("reset-btn").addEventListener("click", () => {
     clearSelection();
     activeHouse = null;
+    activeRealm = null;
     document.querySelectorAll("#legend-list li").forEach((li) => li.classList.remove("active"));
+    document.getElementById("country-menu").value = "";
     document.getElementById("search").value = "";
     fitToView();
   });

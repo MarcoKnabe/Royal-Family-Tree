@@ -63,6 +63,18 @@ body {
 }
 #search:focus { outline: none; border-color: var(--gold-soft); }
 
+#country-menu {
+  padding: 0.5rem 0.7rem;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  cursor: pointer;
+  max-width: 160px;
+}
+#country-menu:focus { outline: none; border-color: var(--gold-soft); }
+
 #search-results {
   position: absolute;
   top: 110%;
@@ -213,8 +225,9 @@ main { position: relative; flex: 1; overflow: hidden; }
   #topbar h1 { font-size: 1.1rem; letter-spacing: 0.3px; }
   #subtitle { display: none; }
 
-  .controls { flex: 1; min-width: 0; }
-  #search { width: 100%; min-width: 0; padding: 0.45rem 0.6rem; font-size: 0.85rem; }
+  .controls { flex: 1; min-width: 0; flex-wrap: wrap; justify-content: flex-end; }
+  #country-menu { max-width: 130px; padding: 0.45rem 0.5rem; font-size: 0.82rem; }
+  #search { flex: 1; width: auto; min-width: 90px; padding: 0.45rem 0.6rem; font-size: 0.85rem; }
   #search-results { width: 100%; left: 0; }
   #reset-btn { padding: 0.45rem 0.6rem; }
 
