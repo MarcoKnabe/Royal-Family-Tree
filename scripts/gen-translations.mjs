@@ -72,7 +72,7 @@ const EPITHETS = {
   Indolent: ["der Faule", "die Faule"], Stammerer: ["der Stammler", "die Stammlerin"],
   Cruel: ["der Grausame", "die Grausame"], Lionheart: ["Löwenherz", "Löwenherz"],
   Strong: ["der Starke", "die Starke"], Pacific: ["der Friedfertige", "die Friedfertige"],
-  Elder: ["der Ältere", "die Ältere"],
+  Elder: ["der Ältere", "die Ältere"], Defiant: ["der Trotzige", "die Trotzige"],
 };
 
 // Multi-word phrases replaced verbatim before everything else.
@@ -89,6 +89,8 @@ const PHRASES = {
   "of Scots": "der Schotten", "the Indolent": "der Träge",
   "the Swan King": "der Schwanenkönig", "the Exile": "der Verbannte",
   "the Gaffer": "der Ohm", "of the Vinzgau": "von den Vinzgau",
+  "Queen of Thorns": "Königin der Dornen", "Knight of Flowers": "Ritter der Blumen",
+  "the Red Viper": "die Rote Viper", "Crow's Eye": "Krähenauge",
 };
 // Single-token surnames / sobriquets, replaced wherever they appear.
 const WORD = {
@@ -96,6 +98,8 @@ const WORD = {
   Snow: "Schnee", Stormborn: "Sturmtochter", Greyjoy: "Graufreud",
   Baggins: "Beutlin", Took: "Tuk", Brandybuck: "Brandybock", Gamgee: "Gamdschie",
   Cotton: "Kattun", Samwise: "Samweis", Meriadoc: "Meriadoc",
+  Blackfyre: "Schwarzfeuer", Bittersteel: "Bitterstahl", Bloodraven: "Blutrabe",
+  Seastar: "Seestern",
 };
 
 function isFemale(p) {
@@ -175,6 +179,8 @@ const HOUSES = {
   Baratheon: "Haus Baratheon", Tully: "Haus Tully", Arryn: "Haus Arryn",
   Martell: "Haus Martell", Tyrell: "Haus Tyrell", Greyjoy: "Haus Graufreud",
   Hightower: "Haus Hohenturm", Velaryon: "Haus Velaryon", Florent: "Haus Florent",
+  Blackfyre: "Haus Schwarzfeuer", Blackwood: "Haus Blackwood", Whent: "Haus Whent",
+  Marbrand: "Haus Marbrand", Estermont: "Haus Estermont", Harlaw: "Haus Harlau",
 };
 const REGIONS = {
   "United Kingdom": "Vereinigtes Königreich", France: "Frankreich", Spain: "Spanien",

@@ -32,8 +32,11 @@ one realm into another:
   - 💍 **Middle-earth (LOTR)** — the houses of Tolkien's legendarium (Elves,
     the Dúnedain → Aragorn, Stewards, Rohan, Dwarves of Durin's Folk, Hobbits).
   - 🐉 **Westeros (ASOIAF)** — the great houses of *A Song of Ice and Fire*
-    (Targaryen, Stark, Lannister, Baratheon, Tully, Arryn, Martell, Tyrell,
-    Greyjoy), dated in years After the Conquest.
+    (Targaryen, Blackfyre, Stark, Lannister, Baratheon, Tully, Arryn, Martell,
+    Tyrell, Greyjoy and the houses they married), dated in years After the
+    Conquest. The Targaryen line runs from Aegon the Conqueror through the
+    Great Bastards and Aegon V down to Daenerys — and the Baratheons join it
+    via Rhaelle Targaryen, Robert's grandmother.
 - **Country/region menu** to jump to and isolate a realm. Its timeline adapts
   to each world (AD, Years of the Sun, After the Conquest).
 - **Language toggle (EN / DE)** — display person names, house names and
