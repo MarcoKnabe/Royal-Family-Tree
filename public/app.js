@@ -19,6 +19,14 @@ let activeHouse = null;
 let activeRealm = null;
 let currentMeta = {};
 
+// ---- Language / translations ----
+let lang = localStorage.getItem("lang") || "en";
+let T = { ui: { en: {}, de: {} }, houses: {}, regions: {}, people: {} };
+const tr = (key) => (T.ui[lang] && T.ui[lang][key]) || (T.ui.en[key] || key);
+const displayName = (p) => (lang === "de" && T.people[p.id]) || p.name;
+const displayHouse = (h) => (lang === "de" && T.houses[h]) || h;
+const displayRegion = (r) => (lang === "de" && T.regions[r]) || r;
+
 // The worlds you can explore. Each is a self-contained dataset with the same
 // schema; switching simply reloads the graph from a different file.
 const UNIVERSES = {
@@ -62,10 +70,27 @@ let yScale;
 
 bootstrap();
 
-function bootstrap() {
+async function bootstrap() {
+  try {
+    T = await (await fetch("translations.json")).json();
+  } catch (e) {
+    console.warn("translations.json missing — English only.");
+  }
   buildWorldMenu();
+  buildLangMenu();
   wireUI();
-  loadUniverse("real");
+  await loadUniverse("real");
+  applyStaticText();
+}
+
+function buildLangMenu() {
+  const menu = document.getElementById("lang-menu");
+  menu.value = lang;
+  menu.addEventListener("change", () => {
+    lang = menu.value;
+    localStorage.setItem("lang", lang);
+    applyLanguage();
+  });
 }
 
 async function loadUniverse(key) {
@@ -95,11 +120,16 @@ async function loadUniverse(key) {
   draw();
   runSimulation();
 
-  const suffix = data.meta.yearSuffix || "";
+  updateStatus();
+}
+
+function updateStatus() {
+  const m = currentMeta;
+  const suffix = m.yearSuffix || "";
   document.getElementById("status-count").textContent =
-    `${people.length} people · ${data.meta.earliest}–${data.meta.latest} ${suffix} · ${
+    `${people.length} ${tr("people")} · ${m.earliest}–${m.latest} ${suffix} · ${
       new Set(people.map((p) => p.house)).size
-    } houses`;
+    } ${tr("houses")}`;
 }
 
 function buildWorldMenu() {
@@ -108,6 +138,36 @@ function buildWorldMenu() {
     .map(([k, u]) => `<option value="${k}">${u.label}</option>`)
     .join("");
   menu.addEventListener("change", () => loadUniverse(menu.value));
+}
+
+// Update the fixed chrome (buttons, labels, tooltips) to the current language.
+function applyStaticText() {
+  document.getElementById("legend-heading").textContent = tr("legendHouses");
+  document.getElementById("legend-hint").textContent = tr("legendHint");
+  document.getElementById("reset-btn").textContent = tr("reset");
+  document.getElementById("search").placeholder = tr("searchPlaceholder");
+  document.getElementById("key-parent").textContent = tr("keyParent");
+  document.getElementById("key-spouse").textContent = tr("keyMarriage");
+  document.getElementById("tip-text").textContent = tr("tip");
+  document.getElementById("world-menu").title = tr("worldTitle");
+  document.getElementById("country-menu").title = tr("countryTitle");
+  document.getElementById("lang-menu").title = tr("langTitle");
+  const first = document.querySelector('#country-menu option[value=""]');
+  if (first) first.textContent = tr("allRealms");
+}
+
+// Re-render every translatable string in place without reloading the dataset.
+function applyLanguage() {
+  applyStaticText();
+  gNodes.selectAll("g.node text").text((d) => displayName(d));
+  buildLegend();
+  const realm = activeRealm;
+  buildCountryMenu();
+  document.getElementById("country-menu").value = realm || "";
+  updateStatus();
+  if (!document.getElementById("info").classList.contains("hidden") && selectedId) {
+    showInfo(byId.get(selectedId));
+  }
 }
 
 function buildGraph() {
@@ -198,7 +258,7 @@ function draw() {
   node
     .append("text")
     .attr("dy", (d) => radius(d) + 9)
-    .text((d) => d.name);
+    .text((d) => displayName(d));
 
   svg.on("click", () => clearSelection());
 }
@@ -347,16 +407,16 @@ function centerOn(id) {
 function showInfo(p) {
   const panel = document.getElementById("info");
   panel.classList.remove("hidden");
-  document.getElementById("info-name").textContent = p.name;
+  document.getElementById("info-name").textContent = displayName(p);
   document.getElementById("info-title").textContent = p.title || "";
 
   const suffix = currentMeta.yearSuffix && currentMeta.yearSuffix !== "AD" ? ` ${currentMeta.yearSuffix}` : "";
   const lifespan =
     p.date || `${p.born}${p.died === null ? " – present" : ` – ${p.died}`}${suffix}`;
   document.getElementById("info-details").innerHTML = `
-    <dt>Lived</dt><dd>${lifespan}</dd>
-    <dt>House</dt><dd>${p.house}</dd>
-    <dt>Realm</dt><dd>${p.country || "—"}</dd>`;
+    <dt>${tr("lived")}</dt><dd>${lifespan}</dd>
+    <dt>${tr("house")}</dt><dd>${displayHouse(p.house)}</dd>
+    <dt>${tr("realm")}</dt><dd>${displayRegion(p.country) || "—"}</dd>`;
 
   const childrenOf = people.filter((q) => q.father === p.id || q.mother === p.id);
   const parents = [p.father, p.mother].filter(Boolean).map((id) => byId.get(id));
@@ -365,12 +425,12 @@ function showInfo(p) {
   const group = (label, arr) =>
     arr.length
       ? `<div class="rel-group"><h3>${label}</h3>${arr
-          .map((x) => `<span class="rel-chip" data-id="${x.id}">${x.name}</span>`)
+          .map((x) => `<span class="rel-chip" data-id="${x.id}">${displayName(x)}</span>`)
           .join("")}</div>`
       : "";
 
   document.getElementById("info-relations").innerHTML =
-    group("Parents", parents) + group("Married", spouses) + group("Children", childrenOf);
+    group(tr("parents"), parents) + group(tr("married"), spouses) + group(tr("children"), childrenOf);
 
   document
     .querySelectorAll("#info-relations .rel-chip")
@@ -388,9 +448,9 @@ function buildLegend() {
   const list = document.getElementById("legend-list");
   list.innerHTML = houses
     .map(
-      (h) => `<li data-house="${h}">
+      (h) => `<li data-house="${h}" class="${h === activeHouse ? "active" : ""}">
         <span class="swatch" style="background:${color(h)}"></span>
-        <span>${h}</span><span class="legend-count">${counts.get(h)}</span>
+        <span>${displayHouse(h)}</span><span class="legend-count">${counts.get(h)}</span>
       </li>`
     )
     .join("");
@@ -426,11 +486,11 @@ function buildCountryMenu() {
   const realms = Array.from(counts.keys()).sort();
   const menu = document.getElementById("country-menu");
   // Rebuild for the current world, keeping the leading "All realms" option.
-  menu.innerHTML = '<option value="">All realms</option>';
+  menu.innerHTML = `<option value="">${tr("allRealms")}</option>`;
   for (const r of realms) {
     const opt = document.createElement("option");
-    opt.value = r;
-    opt.textContent = `${r} (${counts.get(r)})`;
+    opt.value = r; // value stays the canonical (English) realm key
+    opt.textContent = `${displayRegion(r)} (${counts.get(r)})`;
     menu.appendChild(opt);
   }
 }
@@ -466,13 +526,19 @@ function wireUI() {
   input.addEventListener("input", () => {
     const q = input.value.trim().toLowerCase();
     if (!q) { box.classList.remove("show"); return; }
+    // Match either the original or translated name/house so search works in
+    // both languages regardless of which is displayed.
     const hits = people
-      .filter((p) => p.name.toLowerCase().includes(q) || (p.house || "").toLowerCase().includes(q))
+      .filter((p) => {
+        const hay = [p.name, displayName(p), p.house, displayHouse(p.house)]
+          .join(" ").toLowerCase();
+        return hay.includes(q);
+      })
       .slice(0, 12);
     box.innerHTML = hits
       .map(
-        (p) => `<div class="sr-item" data-id="${p.id}">${p.name}
-          <small>${p.house} · ${p.born}${p.died === null ? "–" : `–${p.died}`}</small></div>`
+        (p) => `<div class="sr-item" data-id="${p.id}">${displayName(p)}
+          <small>${displayHouse(p.house)} · ${p.born}${p.died === null ? "–" : `–${p.died}`}</small></div>`
       )
       .join("") || `<div class="sr-item">No match</div>`;
     box.classList.add("show");
@@ -480,7 +546,7 @@ function wireUI() {
       el.addEventListener("click", () => {
         select(el.dataset.id, true);
         box.classList.remove("show");
-        input.value = byId.get(el.dataset.id).name;
+        input.value = displayName(byId.get(el.dataset.id));
       })
     );
   });

@@ -76,6 +76,18 @@ body {
 #world-menu { border-color: var(--gold-soft); color: var(--gold); font-weight: 600; }
 #country-menu:focus, #world-menu:focus { outline: none; border-color: var(--gold-soft); }
 
+#lang-menu {
+  padding: 0.5rem 0.4rem;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+#lang-menu:focus { outline: none; border-color: var(--gold-soft); }
+
 #search-results {
   position: absolute;
   top: 110%;

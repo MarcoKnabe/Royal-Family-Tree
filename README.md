@@ -36,7 +36,12 @@ one realm into another:
     Greyjoy), dated in years After the Conquest.
 - **Country/region menu** to jump to and isolate a realm. Its timeline adapts
   to each world (AD, Years of the Sun, After the Conquest).
-- **Search** by name or house, **filter** by house from the legend, zoom & pan.
+- **Language toggle (EN / DE)** — display person names, house names and
+  region names in English or German (e.g. *Henry VIII* → *Heinrich VIII.*,
+  *William the Conqueror* → *Wilhelm der Eroberer*, *Hanover* → *Hannover*).
+  The choice is remembered across visits. Person/regnal titles stay in English.
+- **Search** by name or house (matches either language), **filter** by house
+  from the legend, zoom & pan.
 
 ## Run it
 
@@ -56,8 +61,24 @@ public/app.js             D3 visualisation, interaction, world/region menus
 public/royals.json        Real-world European royals dataset
 public/middle-earth.json  Middle-earth (LOTR) dataset
 public/westeros.json      Westeros (ASOIAF) dataset
+public/translations.json  German translations (UI, houses, regions, people)
+scripts/gen-translations.mjs  Regenerates translations.json from the datasets
 server.js                 Optional local dev server (not used on Render)
 ```
+
+## Translations
+
+German names live in `public/translations.json` (`ui`, `houses`, `regions`,
+`people` id→name). They're generated from the datasets with dictionaries of
+regnal names, epithets, places and titles:
+
+```bash
+npm run gen:i18n      # rewrites public/translations.json
+```
+
+The file is plain data — hand-edit any entry to correct or extend it. Anything
+without a translation falls back to the original (English/canonical) form, so
+partial coverage is fine.
 
 Worlds are registered in the `UNIVERSES` map near the top of `app.js`; add an
 entry there pointing at a new JSON file to add another world.
