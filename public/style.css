@@ -204,6 +204,27 @@ main { position: relative; flex: 1; overflow: hidden; }
 
 @media (max-width: 720px) {
   #legend { display: none; }
-  #search { width: 170px; }
-  #search-results { width: 170px; }
+
+  /* Compact topbar: shrink the brand, drop the subtitle, tighten padding so
+     the map gets as much vertical room as possible on small screens. */
+  #topbar { padding: 0.4rem 0.7rem; gap: 0.5rem; }
+  .brand { gap: 0.5rem; }
+  .crown { font-size: 1.3rem; }
+  #topbar h1 { font-size: 1.1rem; letter-spacing: 0.3px; }
+  #subtitle { display: none; }
+
+  .controls { flex: 1; min-width: 0; }
+  #search { width: 100%; min-width: 0; padding: 0.45rem 0.6rem; font-size: 0.85rem; }
+  #search-results { width: 100%; left: 0; }
+  #reset-btn { padding: 0.45rem 0.6rem; }
+
+  /* Status bar: keep only the essentials so it stays a single thin line. */
+  #statusbar { padding: 0.3rem 0.7rem; font-size: 0.68rem; }
+  #statusbar .tip { display: none; }
+}
+
+@media (max-width: 420px) {
+  /* On very narrow phones, hide the wordmark entirely — the crown is enough. */
+  #topbar h1 { display: none; }
+  #statusbar .legend-inline { display: none; }
 }
