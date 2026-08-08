@@ -91,6 +91,16 @@ const PHRASES = {
   "the Gaffer": "der Ohm", "of the Vinzgau": "von den Vinzgau",
   "Queen of Thorns": "Königin der Dornen", "Knight of Flowers": "Ritter der Blumen",
   "the Red Viper": "die Rote Viper", "Crow's Eye": "Krähenauge",
+  // Epithets containing "of the …", which rule 3 would otherwise half-translate
+  "the Old Man of the North": "der alte Mann des Nordens",
+  "of the Tower": "vom Turm", "the Sea Snake": "die Seeschlange",
+  "the Grey Lion": "der Graue Löwe", "the Golden": "der Goldene",
+  "Barth Blacksword": "Barth Schwarzschwert", "One-Eye": "Einauge",
+  "Black Aly": "Schwarze Aly", "the Implacable": "der Unerbittliche",
+  "the Wandering Wolf": "der wandernde Wolf", "the Drunken": "der Trunkenbold",
+  "the Dragonknight": "der Drachenritter",
+  "the Laughing Lion": "der Lachende Löwe", "the Kingslayer": "der Königsmörder",
+  "the Imp": "der Gnom",
 };
 // Single-token surnames / sobriquets, replaced wherever they appear.
 const WORD = {
@@ -181,6 +191,22 @@ const HOUSES = {
   Hightower: "Haus Hohenturm", Velaryon: "Haus Velaryon", Florent: "Haus Florent",
   Blackfyre: "Haus Schwarzfeuer", Blackwood: "Haus Blackwood", Whent: "Haus Whent",
   Marbrand: "Haus Marbrand", Estermont: "Haus Estermont", Harlaw: "Haus Harlau",
+  // Houses the lineage charts marry into
+  Karstark: "Haus Karstark", Umber: "Haus Umber", Manderly: "Haus Manderly",
+  Glover: "Haus Glover", Locke: "Haus Locke", Norrey: "Haus Norrey",
+  Ryswell: "Haus Ryswell", Cerwyn: "Haus Cerwyn", Flint: "Haus Flint",
+  Fenn: "Haus Fenn", Rogers: "Haus Rogers", Royce: "Haus Rois",
+  Corbray: "Haus Corbray", Penrose: "Haus Penrose", Plumm: "Haus Plumm",
+  Manwoody: "Haus Manwoody", Dondarrion: "Haus Dondarrion", Dayne: "Haus Dayne",
+  Rogare: "Haus Rogare", Brax: "Haus Brax", Kyndall: "Haus Kyndall",
+  Farman: "Haus Farman", Webber: "Haus Webber", Prester: "Haus Prester",
+  Lefford: "Haus Lefford", Stackspear: "Haus Stackspear",
+  Crakehall: "Haus Crakehall", Jast: "Haus Jast", Swyft: "Haus Swyft",
+  Hayford: "Haus Hayford", Frey: "Haus Frey", Darry: "Haus Darry",
+  Westerling: "Haus Westerling", Costayne: "Haus Costayne",
+  Harroway: "Haus Harroway", Reyne: "Haus Reyne", Oldstones: "Haus Oldstones",
+  Norvos: "Norvos", Tyrosh: "Tyrosh", Pentos: "Pentos",
+  Dothraki: "Dothraki", Smallfolk: "Kleines Volk",
 };
 const REGIONS = {
   "United Kingdom": "Vereinigtes Königreich", France: "Frankreich", Spain: "Spanien",
@@ -193,6 +219,9 @@ const REGIONS = {
   "The Stormlands": "Die Sturmlande", "The Riverlands": "Die Flusslande",
   "The Vale": "Das Grüne Tal", "The Iron Islands": "Die Eiseninseln",
   "The Reach": "Die Weite", Dorne: "Dorne", "King's Landing": "Königsmund",
+  "The Crownlands": "Die Kronlande", Dragonstone: "Drachenstein",
+  Driftmark: "Treibholz", Oldtown: "Altsass", "The Wall": "Die Mauer",
+  "Beyond the Wall": "Jenseits der Mauer", Essos: "Essos",
   "The Shire": "Das Auenland", Rivendell: "Bruchtal", Gondor: "Gondor",
   Rohan: "Rohan", Mordor: "Mordor", Buckland: "Bockland",
 };

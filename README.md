@@ -31,12 +31,17 @@ one realm into another:
   - 👑 **Real World — Europe** — 364 historical royals, one connected web.
   - 💍 **Middle-earth (LOTR)** — the houses of Tolkien's legendarium (Elves,
     the Dúnedain → Aragorn, Stewards, Rohan, Dwarves of Durin's Folk, Hobbits).
-  - 🐉 **Westeros (ASOIAF)** — the great houses of *A Song of Ice and Fire*
-    (Targaryen, Blackfyre, Stark, Lannister, Baratheon, Tully, Arryn, Martell,
-    Tyrell, Greyjoy and the houses they married), dated in years After the
-    Conquest. The Targaryen line runs from Aegon the Conqueror through the
-    Great Bastards and Aegon V down to Daenerys — and the Baratheons join it
-    via Rhaelle Targaryen, Robert's grandmother.
+  - 🐉 **Westeros (ASOIAF)** — 303 people across the great houses of *A Song of
+    Ice and Fire* (Targaryen, Blackfyre, Stark, Lannister, Baratheon, Tully,
+    Arryn, Martell, Tyrell, Greyjoy and the ~50 houses they married), dated in
+    years After the Conquest. Transcribed from the Targaryen, Stark and
+    Lannister lineage charts in `ASOIAF/`. The Targaryen line runs from Aerion
+    of Dragonstone and Aegon the Conqueror, through the Dance of the Dragons
+    (Rhaenyra, Aegon II, the Velaryons of Driftmark), the Great Bastards and
+    Aegon V, down to Daenerys — and the Baratheons join it via Rhaelle
+    Targaryen, Robert's grandmother. The Stark line runs eleven generations
+    from Lord Benjen Stark through Cregan "the Old Man of the North" to Ned's
+    children; the Lannisters from Damon the Grey Lion to Tyrion.
 - **Country/region menu** to jump to and isolate a realm. Its timeline adapts
   to each world (AD, Years of the Sun, After the Conquest).
 - **Language toggle (EN / DE)** — display person names, house names and
@@ -122,3 +127,8 @@ A browser refresh shows your changes (redeploy on Render to publish them).
 
 > Dates and parentage cover the principal, well-documented lines. Royal
 > genealogy is vast; this is a curated, accurate backbone you can keep growing.
+
+> The lineage charts give parentage and birth order but no years. Where a
+> Westeros birth or death year isn't fixed by the books, the dataset carries a
+> generation-consistent estimate and the `date` string says so with a leading
+> `c.` (e.g. `"c. 166 – c. 226 AC"`). Entries without `c.` are canonical.
