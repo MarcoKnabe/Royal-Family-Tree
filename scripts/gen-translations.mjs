@@ -42,7 +42,8 @@ const TITLES = {
   Prince: "Prinz", Princess: "Prinzessin", Archduke: "Erzherzog",
   Archduchess: "Erzherzogin", Duke: "Herzog", Duchess: "Herzogin",
   Count: "Graf", Countess: "Gräfin", Lord: "Lord", Lady: "Lady",
-  Saint: "Heilige", "Crown Prince": "Kronprinz", "Grand Duke": "Großherzog",
+  Saint: "Heilige", "Crown Prince": "Kronprinz", "Crown Princess": "Kronprinzessin",
+  "Grand Duke": "Großherzog",
 };
 
 const PLACES = {
@@ -139,7 +140,7 @@ function translateName(p) {
 
   // 4. Leading / post-comma title words.
   name = name.replace(
-    /\b(Crown Prince|Grand Duke|Empress|Emperor|King|Queen|Prince|Princess|Archduke|Archduchess|Duke|Duchess|Count|Countess|Lord|Lady|Saint)\b/g,
+    /\b(Crown Princess|Crown Prince|Grand Duke|Empress|Emperor|King|Queen|Prince|Princess|Archduke|Archduchess|Duke|Duchess|Count|Countess|Lord|Lady|Saint)\b/g,
     (m) => TITLES[m] || m
   );
 

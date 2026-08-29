@@ -2,7 +2,7 @@
 
 An interactive Node.js website that visualises royal and noble houses as
 **linked genealogies**. Switch between three worlds from the **world menu**:
-the real royal houses of Europe (one connected web of 364 people spanning
+the real royal houses of Europe (one connected web of 368 people spanning
 **688 AD to 2018**, from Charlemagne's father to the youngest Windsors), the
 houses of **Middle-earth**, and the great houses of **Westeros**.
 
@@ -28,7 +28,7 @@ one realm into another:
 - **Click anyone** to light up their entire bloodline (ancestors + descendants)
   and open a detail panel with parents, spouses, children and a Wikipedia link.
 - **World menu** to switch between three self-contained universes:
-  - 👑 **Real World — Europe** — 364 historical royals, one connected web.
+  - 👑 **Real World — Europe** — 368 historical royals, one connected web.
   - 💍 **Middle-earth (LOTR)** — the houses of Tolkien's legendarium (Elves,
     the Dúnedain → Aragorn, Stewards, Rohan, Dwarves of Durin's Folk, Hobbits).
   - 🐉 **Westeros (ASOIAF)** — 303 people across the great houses of *A Song of
